@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Playpen+Sans+Deva:wght@100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+.search-input {
+  background-image: url("src/assets/search.png");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: left;
+  padding-left: 28px;
+  margin-left: 20px;
+  width: 123px;
+  height: 48px;
+  border-radius: 40px;
+}
+
+.search-input::placeholder {
+  color: #b5b5b5;
+  font-family: 'Arimo', sans-serif;
+  font-size: 20px;
+}
+
+.all-expense{
+    width: 123px;
+    height: 48px;
+    border-radius: 40px;
+    color: white;
+    background-color: rgba(92, 106, 255, 1);
+    background-image: url("src/assets/all-expense.png");
+    background-size: 30px;
+    background-position: left 5px center;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+    padding-left: 28px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
+    border: none;
+
+}
+
+
+.food-drink{
+    width: 123px;
+    height: 48px;
+    border-radius: 40px;
+    color: black;
+ 
+    background-image: url("src/assets/food-icon.png");
+    background-size: 30px;
+    background-position: left 2px center;
+    background-repeat: no-repeat;
+    margin-left: 25px;
+    padding-left: 28px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
+    border: none;
+
+}
+
+.groceries{
+     width: 123px;
+    height: 48px;
+    border-radius: 40px;
+    color: black;
+    background-image: url("src/assets/grocery-icon.png");
+    background-size: 30px;
+    background-position: left 5px center;
+    background-repeat: no-repeat;
+    margin-left: 25px;
+    padding-left: 25px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
+    border: none;
+}
+
+.travel{
+    width: 110px;
+    height: 48px;
+    border-radius: 40px;
+    color: black;
+    background-image: url("src/assets/travel-icon.png");
+    background-size: 30px;
+    background-position: left 5px center;
+    background-repeat: no-repeat;
+    margin-left: 15px;
+    padding-left: 25px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
+    border: none;
+}
+
+.health{
+    width: 110px;
+    height: 48px;
+    border-radius: 40px;
+    color: black;
+    background-image: url("src/assets/health-icon.png");
+    background-size: 30px;
+    background-position: left 5px center;
+    background-repeat: no-repeat;
+    margin-left: 15px;
+    padding-left: 25px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
+    border: none;
+}
+
+
+.add-budget{
+    width: 130px;
+    height: 38px;
+    border-radius: 10px;
+    color: white;
+    background-image: url("src/assets/add-white.png");
+    background-color: rgba(92, 106, 255, 1);
+    background-size: 30px;
+    background-position: left 5px center;
+    background-repeat: no-repeat;
+    margin-left: 15px;
+    padding-left: 25px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
+    border: none;
+}
+
+.add-expense{
+    width: 130px;
+    height: 38px;
+    border-radius: 10px;
+    color: white;
+    background-image: url("src/assets/add-white.png");
+    background-color: rgba(92, 106, 255, 1);
+    background-size: 30px;
+    background-position: left 5px center;
+    background-repeat: no-repeat;
+    margin-left: 15px;
+    padding-left: 25px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
+    border: none;
+    
+}
+
+
+
+
+
+
+    
+

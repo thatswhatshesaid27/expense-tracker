@@ -1,0 +1,20 @@
+.card-container{    
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.list-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
