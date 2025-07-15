@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Button.css";
-export const Buttons = () => {
+import AddExpense from "../Expense/AddExpense";
+
+export const Buttons = ({ onAddExpense }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div>
       <input
@@ -14,7 +17,14 @@ export const Buttons = () => {
       <button className="travel">Travel</button>
       <button className="health">Health</button>
       <button className="add-budget">Add Budget</button>
-      <button className="add-expense">Add Expense</button>
+      <button className="add-expense" onClick={() => setIsModalOpen(true)}>
+        Add Expense
+      </button>
+      <AddExpense
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={onAddExpense}
+      />
     </div>
   );
 };

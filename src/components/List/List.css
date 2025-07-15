@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Playpen+Sans+Deva:wght@100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+.single-expense{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+    justify-content: space-between;
+  
+}
+
+.list-content{
+  font-family: 'Arimo', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  font-style: bold;
+  padding: 20px;
+}
+
+.list-content-amount{
+  font-family: 'Arimo', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  font-style: bold;
+  margin-left: 80px;
+}
+
+.list-content-expense{
+  font-family: 'Arimo', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  font-style: bold;
+  margin-left: 80px;
+}
+.list-content-amount{
+  font-family: 'Arimo', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  font-style: bold;
+  margin-left: 80px;
+}
+
+
+.edit-button{
+    width: 80px;
+    height: 32px;
+    background-image: url('src/assets/pencil-black.png');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: left;
+    color: black;
+    font-family: 'Arimo';
+    font-weight: 800;
+    font-size: 16px;
+    border: none;
+    padding: 5px;
+}
+
+.delete-button{
+    width: 80px;
+    height: 32px;
+    background-image: url('src/assets/delete-icon.png');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: left;
+    color: black;
+    font-family: 'Arimo';
+    font-weight: 800;
+    font-size: 16px;
+    border: none;
+    padding: 5px;
+    background-color: rgba(255, 225, 225, 1);
+}
+
+.edit-button-container{
+    margin-left: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.expense-list-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+      font-family: 'Arimo', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  font-style: bold;
+}
+
+.expense-list{
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 20px;
+}

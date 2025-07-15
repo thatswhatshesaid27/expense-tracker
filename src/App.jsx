@@ -6,8 +6,16 @@ import Navbar from "./components/Navbar/Navbar";
 import Card from "./components/Card/Card";
 import { Buttons } from "./components/Buttons/Buttons";
 import Chart from "./components/Charts/Chart";
+import List from "./components/List/List";
+import AddExpense from "./components/Expense/AddExpense";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [expenses, setExpenses] = useState([]);
+
+  const handleAddExpense = (expense) => {
+    setExpenses((prev) => [...prev, expense]);
+  };
   return (
     <div className="App" style={{ margin: "0", padding: "0" }}>
       <Navbar />
@@ -17,20 +25,14 @@ function App() {
         <Card label={"Total Savings"} amount={7795} />
       </div>
       <div className="button-container">
-        <Buttons />
+        <Buttons onAddExpense={handleAddExpense} />
       </div>
       <div className="chart-container">
         <Chart />
       </div>
       <h2>Expense List</h2>
-      <div className="list-container">
-        <span>Sr.</span>
-        <span>Expense.</span>
-        <span>Amount.</span>
-        <>
-          <span>Edit/Delete</span>
-        </>
-      </div>
+
+      <List data={expenses} />
     </div>
   );
 }
