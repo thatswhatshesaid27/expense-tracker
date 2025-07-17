@@ -33,7 +33,7 @@ const Budget = ({ isOpen, onClose, onSubmit }) => {
             />
           </div>
           <button className="submit-button" type="submit">
-            + Add Expense
+            + Add Budget
           </button>
         </form>
       </div>
