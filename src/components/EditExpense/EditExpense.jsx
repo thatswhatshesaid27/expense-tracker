@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import "./AddExpense.css";
 
-const AddExpense = ({ isOpen, onClose, onSubmit }) => {
+const EditExpense = () => {
   const [expenseName, setExpenseName] = useState("");
   const [date, setDate] = useState("");
   const [category, setCategory] = useState("");
@@ -31,7 +30,7 @@ const AddExpense = ({ isOpen, onClose, onSubmit }) => {
   return (
     <div className="modal-overlay">
       <div className="modal-container">
-        <h2 className="modal-title">Add Expense</h2>
+        <h2 className="modal-title">Edit Expense</h2>
         <button className="close-button" onClick={onClose}>
           &times;
         </button>
@@ -97,4 +96,4 @@ const AddExpense = ({ isOpen, onClose, onSubmit }) => {
   );
 };
 
-export default AddExpense;
+export default EditExpense;

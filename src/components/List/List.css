@@ -4,7 +4,8 @@
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid black;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin-top: 10px;
   
 }
 
@@ -13,7 +14,7 @@
   font-weight: 800;
   font-size: 16px;
   font-style: bold;
-  padding: 20px;
+  padding: 20px 56px;
 }
 
 .list-content-amount{
@@ -76,12 +77,13 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    margin-top: 10px;
 }
 
 .expense-list-heading{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 20px;
       font-family: 'Arimo', sans-serif;
   font-weight: 800;

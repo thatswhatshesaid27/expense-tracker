@@ -5,7 +5,6 @@ import Card from "./components/Card/Card";
 import { Buttons } from "./components/Buttons/Buttons";
 import Chart from "./components/Charts/Chart";
 import List from "./components/List/List";
-import AddExpense from "./components/Expense/AddExpense";
 
 function App() {
   var totalE = 0;
@@ -35,7 +34,7 @@ function App() {
     setBudget(budget);
   };
   return (
-    <div className="App" style={{ margin: "0", padding: "0" }}>
+    <div className="App" style={{ margin: "0", padding: "30px" }}>
       <Navbar />
       <div className="card-container">
         <Card label={"Total Budget"} amount={budget} />
