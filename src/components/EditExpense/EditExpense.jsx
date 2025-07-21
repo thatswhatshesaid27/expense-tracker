@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const EditExpense = () => {
+const EditExpense = ({ isOpen, onClose, onSubmit, initialData }) => {
   const [expenseName, setExpenseName] = useState("");
   const [date, setDate] = useState("");
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
+
+  useEffect(() => {
+    if (initialData) {
+      setExpenseName(initialData.name || "");
+      setDate(initialData.date || "");
+      setCategory(initialData.category || "");
+      setAmount(initialData.amount || "");
+    }
+  }, [initialData]);
 
   if (!isOpen) return null;
 
@@ -20,10 +29,6 @@ const EditExpense = () => {
       amount,
     });
 
-    setExpenseName("");
-    setDate("");
-    setCategory("");
-    setAmount("");
     onClose();
   };
 
@@ -42,16 +47,14 @@ const EditExpense = () => {
             </label>
             <input
               type="text"
-              placeholder="Expense Name"
               value={expenseName}
               onChange={(e) => setExpenseName(e.target.value)}
+              placeholder="Expense Name"
             />
           </div>
 
           <div className="form-group">
-            <label>
-              Date<span className="required">*</span>
-            </label>
+            <label>Date</label>
             <input
               type="date"
               value={date}
@@ -81,14 +84,14 @@ const EditExpense = () => {
             </label>
             <input
               type="number"
-              placeholder="Enter Amount"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
+              placeholder="Enter Amount"
             />
           </div>
 
           <button className="submit-button" type="submit">
-            + Add Expense
+            Update Expense
           </button>
         </form>
       </div>

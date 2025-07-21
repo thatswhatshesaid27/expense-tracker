@@ -7,7 +7,6 @@ import Chart from "./components/Charts/Chart";
 import List from "./components/List/List";
 
 function App() {
-  var totalE = 0;
   const [expenses, setExpenses] = useState([]);
   const [totalExpense, setTotalExpense] = useState(0);
   const [budget, setBudget] = useState(0);
@@ -17,15 +16,12 @@ function App() {
   const handleAddExpense = (expense) => {
     const total = Number(expense.amount);
     const newTotal = totalExpense + total;
-    // console.log(expense.amount);
     setExpenses((prev) => [...prev, expense]);
-    setTotalExpense((prevTotal) => prevTotal + Number(expense.amount));
+    setTotalExpense((prevTotal) => prevTotal + total);
     if (!flag) {
-      console.log("not flag first condition");
-      setSaving(budget - expense.amount);
+      setSaving(budget - total);
       setFlag(true);
-    } else if (flag) {
-      console.log("flag true");
+    } else {
       setSaving(budget - newTotal);
     }
   };
@@ -33,6 +29,32 @@ function App() {
   const handleBudget = (budget) => {
     setBudget(budget);
   };
+
+  const handleEditExpense = (index, updatedExpense) => {
+    const updatedExpenses = [...expenses];
+    updatedExpenses[index] = updatedExpense;
+    setExpenses(updatedExpenses);
+
+    const total = updatedExpenses.reduce(
+      (acc, curr) => acc + Number(curr.amount),
+      0
+    );
+    setTotalExpense(total);
+    setSaving(budget - total);
+  };
+
+  const handleDeleteExpense = (index) => {
+    const updatedExpenses = expenses.filter((_, i) => i !== index);
+    setExpenses(updatedExpenses);
+
+    const total = updatedExpenses.reduce(
+      (acc, curr) => acc + Number(curr.amount),
+      0
+    );
+    setTotalExpense(total);
+    setSaving(budget - total);
+  };
+
   return (
     <div className="App" style={{ margin: "0", padding: "30px" }}>
       <Navbar />
@@ -48,9 +70,13 @@ function App() {
         <Chart />
       </div>
       <h2>Expense List</h2>
-
-      <List data={expenses} />
+      <List
+        data={expenses}
+        onEditExpense={handleEditExpense}
+        onDeleteExpense={handleDeleteExpense}
+      />
     </div>
   );
 }
+
 export default App;

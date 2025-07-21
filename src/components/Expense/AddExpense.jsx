@@ -21,6 +21,8 @@ const AddExpense = ({ isOpen, onClose, onSubmit }) => {
       amount,
     });
 
+    console.log("after onsubmit is called");
+
     setExpenseName("");
     setDate("");
     setCategory("");
