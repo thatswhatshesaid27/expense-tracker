@@ -23,8 +23,8 @@
     width: 123px;
     height: 48px;
     border-radius: 40px;
-    color: white;
-    background-color: rgba(92, 106, 255, 1);
+    color: black;
+  
     background-image: url("src/assets/all-expense.png");
     background-size: 30px;
     background-position: left 5px center;
@@ -138,6 +138,11 @@
     font-size: 14px;
     border: none;
     
+}
+
+button.active {
+  background-color:  rgba(92, 106, 255, 1); /* Blue */
+  color: black;
 }
 
 

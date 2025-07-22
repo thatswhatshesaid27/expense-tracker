@@ -12,6 +12,7 @@ function App() {
   const [budget, setBudget] = useState(0);
   const [flag, setFlag] = useState(false);
   const [saving, setSaving] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const handleAddExpense = (expense) => {
     const total = Number(expense.amount);
@@ -55,6 +56,15 @@ function App() {
     setSaving(budget - total);
   };
 
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+  };
+
+  const filteredExpenses =
+    selectedCategory === "All"
+      ? expenses
+      : expenses.filter((e) => e.category === selectedCategory);
+
   return (
     <div className="App" style={{ margin: "0", padding: "30px" }}>
       <Navbar />
@@ -64,14 +74,18 @@ function App() {
         <Card label={"Total Savings"} amount={saving} />
       </div>
       <div className="button-container">
-        <Buttons onAddExpense={handleAddExpense} onAddBudget={handleBudget} />
+        <Buttons
+          onAddExpense={handleAddExpense}
+          onAddBudget={handleBudget}
+          onCategorySelect={handleCategorySelect}
+        />
       </div>
       <div className="chart-container">
-        <Chart />
+        <Chart expenses={expenses} />
       </div>
       <h2>Expense List</h2>
       <List
-        data={expenses}
+        data={filteredExpenses}
         onEditExpense={handleEditExpense}
         onDeleteExpense={handleDeleteExpense}
       />
