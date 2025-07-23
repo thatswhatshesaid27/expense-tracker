@@ -10,6 +10,9 @@
     background-color: rgba(255, 255, 255, 1);
     box-shadow: 2px 10px 10px 0px;
     padding: 20px 40px;
+
+    box-shadow: 4px 20px 40px 0px rgba(28, 28, 30, 0.1);
+
 }
 
 .card-label{

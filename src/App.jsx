@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Card from "./components/Card/Card";
@@ -14,21 +14,56 @@ function App() {
   const [saving, setSaving] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
+  // ✅ Load from localStorage on initial render
+  useEffect(() => {
+    const storedExpenses = localStorage.getItem("expenses");
+    const storedBudget = localStorage.getItem("budget");
+    const storedFlag = localStorage.getItem("flag");
+    console.log("stored values calling");
+    console.log(storedExpenses);
+    console.log(storedBudget);
+    console.log(storedFlag);
+
+    const parsedExpenses = storedExpenses ? JSON.parse(storedExpenses) : [];
+    const parsedBudget = storedBudget ? JSON.parse(storedBudget) : 0;
+    const isFlagSet = storedFlag === "true";
+
+    setExpenses(parsedExpenses);
+    setBudget(parsedBudget);
+    setFlag(isFlagSet);
+
+    const total = parsedExpenses.reduce(
+      (acc, curr) => acc + Number(curr.amount),
+      0
+    );
+
+    setTotalExpense(total);
+    setSaving(parsedBudget - total);
+  }, []);
+
+  // ✅ Save to localStorage whenever key states change
+  useEffect(() => {
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+    localStorage.setItem("budget", budget.toString());
+    localStorage.setItem("flag", JSON.stringify(flag));
+  }, [expenses, budget, flag]);
+
   const handleAddExpense = (expense) => {
-    const total = Number(expense.amount);
-    const newTotal = totalExpense + total;
-    setExpenses((prev) => [...prev, expense]);
-    setTotalExpense((prevTotal) => prevTotal + total);
-    if (!flag) {
-      setSaving(budget - total);
-      setFlag(true);
-    } else {
-      setSaving(budget - newTotal);
-    }
+    const updatedExpenses = [...expenses, expense];
+    const newTotal = totalExpense + Number(expense.amount);
+
+    setExpenses(updatedExpenses);
+    setTotalExpense(newTotal);
+    setSaving(budget - newTotal);
+    setFlag(true);
   };
 
-  const handleBudget = (budget) => {
-    setBudget(budget);
+  const handleBudget = (newBudget) => {
+    const parsed = parseFloat(newBudget);
+    setBudget(parsed);
+    const total = expenses.reduce((acc, curr) => acc + Number(curr.amount), 0);
+    setSaving(parsed - total);
+    if (expenses.length > 0) setFlag(true);
   };
 
   const handleEditExpense = (index, updatedExpense) => {
@@ -73,6 +108,7 @@ function App() {
         <Card label={"Total Expenses"} amount={totalExpense} />
         <Card label={"Total Savings"} amount={saving} />
       </div>
+      <br />
       <div className="button-container">
         <Buttons
           onAddExpense={handleAddExpense}
@@ -80,9 +116,13 @@ function App() {
           onCategorySelect={handleCategorySelect}
         />
       </div>
+      <br />
+      <br />
       <div className="chart-container">
         <Chart expenses={expenses} />
       </div>
+      <br />
+      <br />
       <h2>Expense List</h2>
       <List
         data={filteredExpenses}

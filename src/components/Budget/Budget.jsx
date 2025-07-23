@@ -7,7 +7,7 @@ const Budget = ({ isOpen, onClose, onSubmit }) => {
 
   const handleBudget = (e) => {
     e.preventDefault();
-    setBudget(budget);
+    // setBudget(budget);
     onSubmit(Number(budget));
     setBudget(0);
     onClose();

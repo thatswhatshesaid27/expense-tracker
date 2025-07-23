@@ -34,8 +34,8 @@ const Chart = ({ expenses }) => {
     name: cat,
     value: Number(categoryTotals[cat]) || 0,
   }));
-  console.log("pie chart data");
-  console.log(pieData);
+  // console.log("pie chart data");
+  // console.log(pieData);
 
   // 2. Aggregate by month for Bar chart
   const monthlyTotals = {};
