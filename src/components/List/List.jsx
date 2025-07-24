@@ -30,10 +30,10 @@ const List = ({ data, onEditExpense, onDeleteExpense }) => {
   return (
     <div className="expense-list">
       <div className="expense-list-heading">
-        <span>Sr</span>
-        <span>Expense</span>
-        <span>Amount</span>
-        <span>Edit/Delete</span>
+        <div>Sr</div>
+        <div>Expense</div>
+        <div>Amount</div>
+        <div>Edit/Delete</div>
       </div>
 
       {data.map((item, index) => (

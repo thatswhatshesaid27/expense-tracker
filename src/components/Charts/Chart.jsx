@@ -12,6 +12,8 @@ import {
   Label,
 } from "recharts";
 
+import "./Chart.css";
+
 // Define fixed category colors
 const COLORS = {
   Travel: "#007bff",

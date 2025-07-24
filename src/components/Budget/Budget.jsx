@@ -16,7 +16,7 @@ const Budget = ({ isOpen, onClose, onSubmit }) => {
   return (
     <div className="modal-overlay">
       <div className="modal-container">
-        <h2 className="modal-title"></h2>
+        <h2 className="modal-title">Add Budget</h2>
         <button className="close-button" onClick={onClose}>
           X
         </button>

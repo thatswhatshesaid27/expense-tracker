@@ -14,7 +14,6 @@ function App() {
   const [saving, setSaving] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  // ✅ Load from localStorage on initial render
   useEffect(() => {
     const storedExpenses = localStorage.getItem("expenses");
     const storedBudget = localStorage.getItem("budget");
@@ -41,7 +40,6 @@ function App() {
     setSaving(parsedBudget - total);
   }, []);
 
-  // ✅ Save to localStorage whenever key states change
   useEffect(() => {
     localStorage.setItem("expenses", JSON.stringify(expenses));
     localStorage.setItem("budget", budget.toString());
@@ -123,7 +121,7 @@ function App() {
       </div>
       <br />
       <br />
-      <h2>Expense List</h2>
+
       <List
         data={filteredExpenses}
         onEditExpense={handleEditExpense}
